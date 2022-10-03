@@ -57,6 +57,9 @@ public class Card {
 		this.score = score;
 	}
 
+	public Card() {
+	}
+
 	public String getValue() {
 		return value;
 	}

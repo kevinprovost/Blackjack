@@ -35,21 +35,18 @@ public class Deck implements Iterable<Card> {
 		return suits;
 	}
 
-	public static Card getCardInDeck(int i) {
-		return deckOfCards.get(i);
+	public static Card getCardInDeck(int index) {
+//		Card c = deckOfCards.get(index);
+//		deckOfCards.remove(index);
+//		return c;
+		return deckOfCards.get(index);
 	}
 
 	public static void setCardInDeck(int index, String value, Suit suit) {
 		deckOfCards.add(index, new Card(value, suit));
 	}
 
-	public static Card drawCardInDeck(int index) {
-		Card c = deckOfCards.get(index);
-		deckOfCards.remove(index);
-		return c;
-	}
-
-	public List<Card> getDeckOfCards() {
+	public static List<Card> getDeckOfCards() {
 		return deckOfCards;
 	}
 

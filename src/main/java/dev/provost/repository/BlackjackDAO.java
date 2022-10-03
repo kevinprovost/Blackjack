@@ -6,6 +6,10 @@ import dev.provost.model.Deck;
 
 public class BlackjackDAO {
 
+	public BlackjackDAO() {
+		Blackjack bj = new Blackjack();
+	}
+
 	public void changeAceScore(int index) {
 		Card c = Blackjack.getPlayerHand().get(index);
 		if (c.getScore() == 1) {
@@ -18,11 +22,11 @@ public class BlackjackDAO {
 	}
 
 	public Card drawCard(int index) {
-		return Deck.drawCardInDeck(index);
+		return Deck.getDeckOfCards().remove(index);
 	}
 
 	public Card drawCard() {
-		return Deck.drawCardInDeck(0);
+		return Deck.getDeckOfCards().remove(0);
 	}
 
 	public void addToDealerHand(Card card) {
@@ -31,9 +35,6 @@ public class BlackjackDAO {
 
 	public void addToPlayerHand(Card card) {
 		Blackjack.getPlayerHand().add(card);
-	}
-
-	public void removeFromDeck() {
 	}
 
 	public void addToDiscardPile(Card discardedCard) {

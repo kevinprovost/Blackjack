@@ -62,9 +62,9 @@ public class Blackjack {
 		}
 	}
 
-	public static Deck getDeck() {
-		return deckOfCards;
-	}
+//	public static Deck getDeck() {
+//		return deckOfCards;
+//	}
 
 	public static void setDeck(Deck deck) {
 		Blackjack.deckOfCards = deck;
