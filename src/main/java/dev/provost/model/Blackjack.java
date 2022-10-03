@@ -3,8 +3,6 @@ package dev.provost.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.provost.model.Card.Suit;
-
 public class Blackjack {
 
 	private static List<Card> dealerHand = new ArrayList<>();
@@ -56,25 +54,10 @@ public class Blackjack {
 		}
 
 		if (acesPresent != 0) {
-			return playerScore + " or " + (playerScore + (10 * acesPresent));
+			return playerScore + " or " + (playerScore - (10 * acesPresent)); //minus
 		} else {
 			return String.valueOf(playerScore);
 		}
 	}
 
-//	public static Deck getDeck() {
-//		return deckOfCards;
-//	}
-
-	public static void setDeck(Deck deck) {
-		Blackjack.deckOfCards = deck;
-	}
-
-	public static void replaceAceInHand(int index, Suit suit, int score) {
-		if (playerHand.get(index).getValue().equals("Ace")) {
-			playerHand.set(index, new Card("Ace", suit, score));
-		} else {
-			System.out.println("No Ace in that position.");
-		}
-	}
 }

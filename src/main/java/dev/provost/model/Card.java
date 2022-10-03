@@ -33,6 +33,9 @@ public class Card {
 	private int score;
 	private Suit suit;
 
+	public Card() {
+	}
+
 	public Card(String value, Suit suit) {
 		super();
 		this.value = value;
@@ -55,9 +58,6 @@ public class Card {
 		this.value = value;
 		this.suit = suit;
 		this.score = score;
-	}
-
-	public Card() {
 	}
 
 	public String getValue() {
