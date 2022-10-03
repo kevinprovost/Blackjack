@@ -54,7 +54,7 @@ public class Blackjack {
 		}
 
 		if (acesPresent != 0) {
-			return playerScore + " or " + (playerScore + (10 * acesPresent));
+			return playerScore + " or " + (playerScore - (10 * acesPresent)); //minus
 		} else {
 			return String.valueOf(playerScore);
 		}

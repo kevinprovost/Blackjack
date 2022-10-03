@@ -17,7 +17,7 @@ public class BlackjackRunner {
 		}
 
 		bs.dealCards();
-		bs.clearCards();
+		
 
 		System.out.println(Blackjack.getPlayerHand());
 		System.out.println(Blackjack.getPlayerScore());
@@ -25,6 +25,8 @@ public class BlackjackRunner {
 		System.out.println(Blackjack.getDealerHand());
 		System.out.println(Blackjack.getDealerScore());
 
+
+		bs.clearCards();
 		System.out.println(Blackjack.getDiscardPile());
 
 		System.out.println("Remaining cards: " + Deck.getDeckOfCards().size());
