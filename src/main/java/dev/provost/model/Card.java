@@ -75,7 +75,11 @@ public class Card {
 
 	@Override
 	public String toString() {
-		return value + " of " + suit;
+		if (!"Ace".equals(value)) {
+			return value + " of " + suit + " (" + score + ")";
+		}
+
+		return value + " of " + suit + " (" + score + " or " + (score - 10) + ")";
 	}
 
 }

@@ -12,30 +12,18 @@ public class Blackjack {
 	private static List<Card> discardPile = new ArrayList<>();
 	private static int dealerScore = 0;
 	private static int playerScore = 0;
-	private static Deck deck = new Deck();
+	private static Deck deckOfCards = new Deck();
 
 	public static List<Card> getDealerHand() {
 		return dealerHand;
-	}
-
-	public static void addToDealerHand(Card card) {
-		Blackjack.dealerHand.add(card);
 	}
 
 	public static List<Card> getPlayerHand() {
 		return playerHand;
 	}
 
-	public static void addToPlayerHand(Card card) {
-		Blackjack.playerHand.add(card);
-	}
-
 	public static List<Card> getDiscardPile() {
 		return discardPile;
-	}
-
-	public static void addToDiscardPile(Card discardedCard) {
-		Blackjack.discardPile.add(discardedCard);
 	}
 
 	public static String getDealerScore() {
@@ -75,16 +63,16 @@ public class Blackjack {
 	}
 
 	public static Deck getDeck() {
-		return deck;
+		return deckOfCards;
 	}
 
 	public static void setDeck(Deck deck) {
-		Blackjack.deck = deck;
+		Blackjack.deckOfCards = deck;
 	}
 
-	public static void replaceAceInHand(int index, Suit suit, int i) {
+	public static void replaceAceInHand(int index, Suit suit, int score) {
 		if (playerHand.get(index).getValue().equals("Ace")) {
-			playerHand.set(index, new Card("Ace", suit, i));
+			playerHand.set(index, new Card("Ace", suit, score));
 		} else {
 			System.out.println("No Ace in that position.");
 		}

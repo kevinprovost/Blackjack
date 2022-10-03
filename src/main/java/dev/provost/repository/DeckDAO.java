@@ -7,11 +7,11 @@ import dev.provost.model.Card;
 import dev.provost.model.Card.Suit;
 import dev.provost.model.Deck;
 
-public class DeckSetup {
+public class DeckDAO {
 
 	private static int initCounter = 0;
 
-	private DeckSetup() {
+	private DeckDAO() {
 		throw new IllegalStateException("Utility class should not be instantiated");
 	}
 
@@ -25,12 +25,12 @@ public class DeckSetup {
 
 	public static void setSuit(Suit suit) {
 		for (int i : Deck.getNums()) {
-			Deck.setCardinDeck(initCounter, String.valueOf(i), suit);
+			Deck.setCardInDeck(initCounter, String.valueOf(i), suit);
 			initCounter++;
 		}
 
 		for (String s : Deck.getFaces()) {
-			Deck.setCardinDeck(initCounter, s, suit);
+			Deck.setCardInDeck(initCounter, s, suit);
 			initCounter++;
 		}
 	}
