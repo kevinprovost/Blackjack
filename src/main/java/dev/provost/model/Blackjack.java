@@ -10,6 +10,7 @@ public class Blackjack {
 	private static List<Card> discardPile = new ArrayList<>();
 	private static int dealerScore = 0;
 	private static int playerScore = 0;
+	private static Deck deckOfCards = new Deck();
 
 	public static List<Card> getDealerHand() {
 		return dealerHand;

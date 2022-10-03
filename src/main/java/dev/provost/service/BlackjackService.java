@@ -8,11 +8,11 @@ import dev.provost.repository.BlackjackDAO;
 
 public class BlackjackService {
 
-	public BlackjackService() {
-		BlackjackDAO bd = new BlackjackDAO();
-	}
+	BlackjackDAO bd;
 
-	BlackjackDAO bd = new BlackjackDAO();
+	public BlackjackService() {
+		bd = new BlackjackDAO();
+	}
 
 	public void dealCards() {
 		bd.addToPlayerHand(bd.drawCard());
