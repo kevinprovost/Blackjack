@@ -36,9 +36,6 @@ public class Deck implements Iterable<Card> {
 	}
 
 	public static Card getCardInDeck(int index) {
-//		Card c = deckOfCards.get(index);
-//		deckOfCards.remove(index);
-//		return c;
 		return deckOfCards.get(index);
 	}
 
