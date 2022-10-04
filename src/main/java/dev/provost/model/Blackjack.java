@@ -24,7 +24,7 @@ public class Blackjack {
 		return discardPile;
 	}
 
-	public static String getDealerScore() {
+	public static int getDealerScore() {
 		dealerScore = 0;
 		int acesPresent = 0;
 
@@ -35,14 +35,21 @@ public class Blackjack {
 			dealerScore += c.getScore();
 		}
 
-		if (acesPresent != 0) {
-			return dealerScore + " or " + (dealerScore + (10 * acesPresent));
-		} else {
-			return String.valueOf(dealerScore);
+//		if (acesPresent != 0) {
+//			return dealerScore + " or " + (dealerScore + (10 * acesPresent));
+//		} else {
+//			return String.valueOf(dealerScore);
+//		}
+		
+		while (dealerScore > 21 && acesPresent >0) { 
+			dealerScore-=10;
+			acesPresent--;
 		}
+		
+		return dealerScore;
 	}
 
-	public static String getPlayerScore() {
+	public static int getPlayerScore() {
 		playerScore = 0;
 		int acesPresent = 0;
 
@@ -53,11 +60,21 @@ public class Blackjack {
 			playerScore += c.getScore();
 		}
 
-		if (acesPresent != 0) {
-			return playerScore + " or " + (playerScore + (10 * acesPresent));
-		} else {
-			return String.valueOf(playerScore);
+//		if (acesPresent != 0) {
+//			return playerScore + " or " + (playerScore - (10 * acesPresent)); //minus
+//		} else {
+//			return String.valueOf(playerScore);
+//		}
+		
+		while (playerScore > 21 && acesPresent >0) { 
+			playerScore-=10;
+			acesPresent--;
 		}
+		
+		return playerScore;
 	}
+	
+	
+	
 
 }

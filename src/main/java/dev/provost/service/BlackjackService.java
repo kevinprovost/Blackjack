@@ -46,5 +46,24 @@ public class BlackjackService {
 			System.out.println("No Aces to change.");
 		}
 	}
+	
+	public  void playForDealer() {
+		
+		while (Blackjack.getDealerScore() < 16
+&&(Blackjack.getDealerScore()>Blackjack.getPlayerScore())) {
+			System.out.println("Dealer hits...");
+			hitMove(Blackjack.getDealerHand());
+			System.out.println("Dealer now has:");
+			System.out.println("-"+Blackjack.getDealerHand());
+			System.out.println("-"+Blackjack.getDealerScore());
+		}
+			
+			if (Blackjack.getDealerScore()>21) {
+				System.out.println("oops, I busted!");
+			}
+			if (Blackjack.getDealerScore()<=21) {
+				System.out.println("Dealer stays...");
+			}
+	}
 
 }
