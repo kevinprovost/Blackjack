@@ -3,8 +3,6 @@ package dev.provost.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.provost.model.Card.Suit;
-
 public class Blackjack {
 
 	private static List<Card> dealerHand = new ArrayList<>();
@@ -26,7 +24,7 @@ public class Blackjack {
 		return discardPile;
 	}
 
-	public static String getDealerScore() {
+	public static int getDealerScore() {
 		dealerScore = 0;
 		int acesPresent = 0;
 
@@ -37,14 +35,21 @@ public class Blackjack {
 			dealerScore += c.getScore();
 		}
 
-		if (acesPresent != 0) {
-			return dealerScore + " or " + (dealerScore + (10 * acesPresent));
-		} else {
-			return String.valueOf(dealerScore);
+//		if (acesPresent != 0) {
+//			return dealerScore + " or " + (dealerScore + (10 * acesPresent));
+//		} else {
+//			return String.valueOf(dealerScore);
+//		}
+		
+		while (dealerScore > 21 && acesPresent >0) { 
+			dealerScore-=10;
+			acesPresent--;
 		}
+		
+		return dealerScore;
 	}
 
-	public static String getPlayerScore() {
+	public static int getPlayerScore() {
 		playerScore = 0;
 		int acesPresent = 0;
 
@@ -55,26 +60,21 @@ public class Blackjack {
 			playerScore += c.getScore();
 		}
 
-		if (acesPresent != 0) {
-			return playerScore + " or " + (playerScore + (10 * acesPresent));
-		} else {
-			return String.valueOf(playerScore);
+//		if (acesPresent != 0) {
+//			return playerScore + " or " + (playerScore - (10 * acesPresent)); //minus
+//		} else {
+//			return String.valueOf(playerScore);
+//		}
+		
+		while (playerScore > 21 && acesPresent >0) { 
+			playerScore-=10;
+			acesPresent--;
 		}
+		
+		return playerScore;
 	}
+	
+	
+	
 
-//	public static Deck getDeck() {
-//		return deckOfCards;
-//	}
-
-	public static void setDeck(Deck deck) {
-		Blackjack.deckOfCards = deck;
-	}
-
-	public static void replaceAceInHand(int index, Suit suit, int score) {
-		if (playerHand.get(index).getValue().equals("Ace")) {
-			playerHand.set(index, new Card("Ace", suit, score));
-		} else {
-			System.out.println("No Ace in that position.");
-		}
-	}
 }
