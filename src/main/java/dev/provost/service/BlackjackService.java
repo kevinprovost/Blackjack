@@ -119,8 +119,10 @@ public class BlackjackService {
 
 	private char askPlayer() {
 		System.out.println("\nPress 'h' to hit, or 's' to stay");
-		char userInput = scan.nextLine().toLowerCase().charAt(0);
-
+		char userInput = ' ';
+		if (scan.hasNext()){  //this will check for empty string
+			userInput = scan.next().toLowerCase().charAt(0); //stopped using nextLine to avoid the newline issues
+		}
 		if (userInput == HIT_CHAR) {
 			System.out.println("You hit...");
 			hitMove(Blackjack.getPlayerHand());
@@ -151,6 +153,7 @@ public class BlackjackService {
 			gameLoop();
 		} else if (userInput == 'q') {
 			System.out.println("Thanks for playing!");
+			scan.close();
 		} else {
 			System.out.println("Invalid entry.\n");
 			playAgain();
