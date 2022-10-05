@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import dev.provost.model.Card.Suit;
-import dev.provost.repository.DeckDAO;
+import dev.provost.repository.DeckSetup;
 
 public class Deck implements Iterable<Card> {
 
@@ -15,7 +15,7 @@ public class Deck implements Iterable<Card> {
 	private static List<Card> deckOfCards = new ArrayList<>();
 
 	public Deck() {
-		DeckDAO.setup(deckOfCards);
+		DeckSetup.setup(deckOfCards);
 	}
 
 	@Override

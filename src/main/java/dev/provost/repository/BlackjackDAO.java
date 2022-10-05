@@ -2,7 +2,6 @@ package dev.provost.repository;
 
 import dev.provost.model.Blackjack;
 import dev.provost.model.Card;
-import dev.provost.model.Card.Suit;
 import dev.provost.model.Deck;
 
 public class BlackjackDAO {
@@ -25,17 +24,5 @@ public class BlackjackDAO {
 
 	public void addToPlayerHand(Card card) {
 		Blackjack.getPlayerHand().add(card);
-	}
-
-	public void addToDiscardPile(Card discardedCard) {
-		Blackjack.getDiscardPile().add(discardedCard);
-	}
-
-	public void replaceAceInHand(int index, Suit suit, int score) {
-		if (Blackjack.getPlayerHand().get(index).getValue().equals("Ace")) {
-			Blackjack.getPlayerHand().set(index, new Card("Ace", suit, score));
-		} else {
-			System.out.println("No Ace in that position.");
-		}
 	}
 }

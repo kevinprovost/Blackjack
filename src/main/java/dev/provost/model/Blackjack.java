@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Blackjack {
 
+	public Blackjack() {
+		new Deck();
+	}
+
 	private static List<Card> dealerHand = new ArrayList<>();
 	private static List<Card> playerHand = new ArrayList<>();
-	private static List<Card> discardPile = new ArrayList<>();
-	private static int dealerScore = 0;
-	private static int playerScore = 0;
-	private static Deck deckOfCards = new Deck();
 
 	public static List<Card> getDealerHand() {
 		return dealerHand;
@@ -20,12 +20,8 @@ public class Blackjack {
 		return playerHand;
 	}
 
-	public static List<Card> getDiscardPile() {
-		return discardPile;
-	}
-
 	public static int getDealerScore() {
-		dealerScore = 0;
+		int dealerScore = 0;
 		int acesPresent = 0;
 
 		for (Card c : Blackjack.getDealerHand()) {
@@ -35,22 +31,16 @@ public class Blackjack {
 			dealerScore += c.getScore();
 		}
 
-//		if (acesPresent != 0) {
-//			return dealerScore + " or " + (dealerScore + (10 * acesPresent));
-//		} else {
-//			return String.valueOf(dealerScore);
-//		}
-		
-		while (dealerScore > 21 && acesPresent >0) { 
-			dealerScore-=10;
+		while (dealerScore > 21 && acesPresent > 0) {
+			dealerScore -= 10;
 			acesPresent--;
 		}
-		
+
 		return dealerScore;
 	}
 
 	public static int getPlayerScore() {
-		playerScore = 0;
+		int playerScore = 0;
 		int acesPresent = 0;
 
 		for (Card c : Blackjack.getPlayerHand()) {
@@ -60,21 +50,12 @@ public class Blackjack {
 			playerScore += c.getScore();
 		}
 
-//		if (acesPresent != 0) {
-//			return playerScore + " or " + (playerScore - (10 * acesPresent)); //minus
-//		} else {
-//			return String.valueOf(playerScore);
-//		}
-		
-		while (playerScore > 21 && acesPresent >0) { 
-			playerScore-=10;
+		while (playerScore > 21 && acesPresent > 0) {
+			playerScore -= 10;
 			acesPresent--;
 		}
-		
+
 		return playerScore;
 	}
-	
-	
-	
 
 }

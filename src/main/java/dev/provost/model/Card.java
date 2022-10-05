@@ -33,9 +33,6 @@ public class Card {
 	private int score;
 	private Suit suit;
 
-	public Card() {
-	}
-
 	public Card(String value, Suit suit) {
 		super();
 		this.value = value;
@@ -78,11 +75,7 @@ public class Card {
 
 	@Override
 	public String toString() {
-		if (!"Ace".equals(value)) {
-			return value + " of " + suit + " (" + score + ")";
-		}
-
-		return value + " of " + suit + " (" + score + " or " + (score - 10) + ")";
+		return value + " of " + suit;
 	}
 
 }
